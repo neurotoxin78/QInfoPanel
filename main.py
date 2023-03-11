@@ -5,15 +5,15 @@ from PyQt6.QtCore import QSize, Qt
 from PyQt6.QtGui import QGuiApplication, QIcon
 from PyQt6.QtWidgets import QMainWindow, QPushButton
 
+from controllers.volumecontrol import VolumeControl
+from helpers import setShadow
 from informers.clock import Clock
-from informers.weather import Weather
-from informers.systemload import SystemLoad
 from informers.networkload import NetworkLoad
 from informers.powermonitor import PowerMonitor
+from informers.systemload import SystemLoad
+from informers.weather import Weather
 from launcher.launcher import LaunchButton
-from controllers.volumecontrol import VolumeControl
 from tools import get_config, loadStylesheet, extended_exception_hook
-from helpers import setShadow
 
 
 class MainWindow(QMainWindow):
