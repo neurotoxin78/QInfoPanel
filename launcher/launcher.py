@@ -33,7 +33,7 @@ class LaunchButton(QWidget):
         self.appBtn.setIcon(QIcon.fromTheme("applications-other"))
         self.appBtn.setIconSize(QSize(64, 64))
         self.appBtn.setMaximumSize(64, 64)
-        self.appBtn.clicked.connect(self.app_click)
+        self.appBtn.clicked.connect(self.launcher.show)
         self.launch_frame_frameLayout.addWidget(self.appBtn, 0, 0)
         self.iRadioBtn = QPushButton()
         self.iRadioBtn.setFont(font)
@@ -47,14 +47,6 @@ class LaunchButton(QWidget):
         self.setLayout(self.launch_frame_frameLayout)
         setShadow(self.appBtn, 25)
 
-    def app_click(self):
-        #monitor = QDesktopWidget().screenGeometry(self.config['display']['output_display'])
-        # self.launcher.move(monitor.left(), monitor.top())
-        self.launcher.show()
-        # self.virtual_keyboard = AlphaNeumericVirtualKeyboard(self.MainPanel, x_pos=0, y_pos=0)
-        # self.virtual_keyboard.move(monitor.left(), monitor.top())
-        # self.virtual_keyboard.display(self.launcher.lineEdit)
-        # self.virtual_keyboard.raise_()
 
     def run_iRadio(self):
         pass

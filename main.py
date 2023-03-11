@@ -16,7 +16,8 @@ class MainWindow(QMainWindow):
         uic.loadUi('ui/panel.ui', self)
         self.config = get_config()
         self.setWindowTitle("QInfoPanel")
-        # self.setWindowFlags(Qt.WindowType.FramelessWindowHint | Qt.WindowType.Tool | Qt.WindowType.WindowStaysOnBottomHint)
+        # self.setWindowFlags(Qt.WindowType.FramelessWindowHint | Qt.WindowType.Tool
+        # | Qt.WindowType.WindowStaysOnBottomHint)
         # self.setAttribute(Qt.WA_NoSystemBackground, True)
         # self.setAttribute(Qt.WA_TranslucentBackground, True)
         self.setMouseTracking(True)
