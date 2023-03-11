@@ -40,7 +40,7 @@ class MainWindow(QMainWindow):
         # Informers
         if self.config['weather']['enabled']:
             self.weather = Weather(self)
-            self.weather.setMaximumSize(QSize(600, 145))
+            self.weather.setMaximumSize(QSize(560, 145))
             self.left_frameLayout.addWidget(self.weather, 0, 0)
             try:
                 self.weather.get_weather()
