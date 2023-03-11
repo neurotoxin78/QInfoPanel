@@ -15,6 +15,12 @@ def extended_exception_hook(exec_type, value, traceback):
     sys.exit(1)
 
 
+def get_cputemp(sensor: str):
+    with open(sensor) as cpu_term:
+        raw_t = float(cpu_term.read()) / 1000
+        return raw_t
+
+
 def get_apps_list(path):
     return listdir(path)
 

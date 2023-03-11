@@ -12,17 +12,20 @@ clock_color = "rgba(255, 255, 255, 255)"
 
 [intervals]
 sys_proc_refresh_ms = 60000
-sensor_refresh_ms = 500
+
 
 network_refresh_ms = 5000
-cpu_temp_refresh_ms = 2000
+
 net_interval_ms = 200
 
 chatbot_fefresh_min = 5
 statusbar_msg_time_ms = 3000
 
-[cpu_temp]
+[systemload]
+enabled = true
 cpu_temp_sensor_path = "/sys/class/hwmon/hwmon1/temp1_input"
+sensor_refresh_ms = 500
+cpu_temp_refresh_ms = 2000
 
 [network]
 interface = "enp39s0"
