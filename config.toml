@@ -1,0 +1,47 @@
+[display]
+output_display = 0
+
+
+
+[clock]
+enabled = true
+refresh_ms = 500
+time_format = "%H:%M<sup><u>%S</u></sup>"
+clock_color = "rgba(255, 255, 255, 255)"
+
+[intervals]
+sys_proc_refresh_ms = 60000
+sensor_refresh_ms = 500
+
+network_refresh_ms = 5000
+cpu_temp_refresh_ms = 2000
+net_interval_ms = 200
+
+chatbot_fefresh_min = 5
+statusbar_msg_time_ms = 3000
+
+[cpu_temp]
+cpu_temp_sensor_path = "/sys/class/hwmon/hwmon1/temp1_input"
+
+[network]
+interface = "enp39s0"
+graph_data_limit = 60
+
+[weather]
+enabled = true
+fefresh_min = 10
+url = "http://api.openweathermap.org/data/2.5/weather?units=metric&"
+city = "Kyiv"
+we_temperature_color = "rgba(220, 250, 255, 250)"
+we_humidity_color = "rgba(220, 250, 255, 250)"
+we_pressure_color = "rgba(220, 250, 255, 250)"
+we_condition_color = "rgba(220, 250, 255, 250)"
+we_wind_speed_color = "rgba(220, 250, 255, 250)"
+we_wind_dir_color = "rgba(220, 250, 255, 250)"
+
+[openai]
+visible = false
+model_engine = "text-davinci-003"
+
+[powermon]
+visible = false
