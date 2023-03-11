@@ -12,13 +12,6 @@ clock_color = "rgba(255, 255, 255, 255)"
 
 [intervals]
 sys_proc_refresh_ms = 60000
-
-
-network_refresh_ms = 5000
-
-net_interval_ms = 200
-
-chatbot_fefresh_min = 5
 statusbar_msg_time_ms = 3000
 
 [systemload]
@@ -27,9 +20,12 @@ cpu_temp_sensor_path = "/sys/class/hwmon/hwmon1/temp1_input"
 sensor_refresh_ms = 500
 cpu_temp_refresh_ms = 2000
 
-[network]
+[networkload]
+enabled = true
 interface = "enp39s0"
 graph_data_limit = 60
+network_refresh_ms = 5000
+net_interval_ms = 200
 
 [weather]
 enabled = true
@@ -48,4 +44,4 @@ visible = false
 model_engine = "text-davinci-003"
 
 [powermon]
-visible = false
+enabled = false

@@ -7,6 +7,7 @@ from PyQt6.QtWidgets import QMainWindow
 from informers.clock import Clock
 from informers.weather import Weather
 from informers.systemload import SystemLoad
+from informers.networkload import NetworkLoad
 from launcher.launcher import LaunchButton
 
 from tools import get_config, loadStylesheet, extended_exception_hook
@@ -46,6 +47,11 @@ class MainWindow(QMainWindow):
             self.systemLoad = SystemLoad()
             self.systemLoad.setMaximumSize(QSize(320, 145))
             self.right_frameLayout.addWidget(self.systemLoad, 0, 0)
+
+        if self.config['networkload']['enabled']:
+            self.networkLoad = NetworkLoad()
+            self.networkLoad.setMaximumSize(QSize(320, 145))
+            self.right_frameLayout.addWidget(self.networkLoad, 1, 0)
 
 if __name__ == '__main__':
     sys._excepthook = sys.excepthook
