@@ -9,7 +9,7 @@ from informers.weather import Weather
 from informers.systemload import SystemLoad
 from informers.networkload import NetworkLoad
 from launcher.launcher import LaunchButton
-
+from controllers.volumecontrol import VolumeControl
 from tools import get_config, loadStylesheet, extended_exception_hook
 
 
@@ -52,6 +52,11 @@ class MainWindow(QMainWindow):
             self.networkLoad = NetworkLoad()
             self.networkLoad.setMaximumSize(QSize(320, 145))
             self.right_frameLayout.addWidget(self.networkLoad, 1, 0)
+
+        if self.config['volumecontrol']['enabled']:
+            self.volumeControl = VolumeControl()
+            self.volumeControl.setMaximumSize(QSize(320, 145))
+            self.right_frameLayout.addWidget(self.volumeControl, 2, 0)
 
 if __name__ == '__main__':
     sys._excepthook = sys.excepthook

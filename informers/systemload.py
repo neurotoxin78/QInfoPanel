@@ -8,7 +8,7 @@ from helpers import setShadow
 class SystemLoad(QWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        stylesheet = "stylesheets/panel.qss"
+        stylesheet = "stylesheets/systemload.qss"
         self.setStyleSheet(loadStylesheet(stylesheet))
         self.config = get_config()
         self.sensortimer = QTimer()

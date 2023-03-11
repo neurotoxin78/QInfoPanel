@@ -13,9 +13,9 @@ con = Console()
 class Weather(QWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # stylesheet = "stylesheets/weather.qss"
+        stylesheet = "stylesheets/weather.qss"
         self.MainPanel = args[0]
-        # self.setStyleSheet(loadStylesheet(stylesheet))
+        self.setStyleSheet(loadStylesheet(stylesheet))
         self.config = get_config()
         self.weathertimer = QTimer()
         self.weathertimer.timeout.connect(self.refresh)

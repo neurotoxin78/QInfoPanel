@@ -4,6 +4,9 @@ output_display = 0
 [launcher]
 enabled = true
 
+[volumecontrol]
+enabled = true
+
 [clock]
 enabled = true
 refresh_ms = 500

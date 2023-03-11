@@ -14,7 +14,7 @@ from helpers import setShadow
 class NetworkLoad(QWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        stylesheet = "stylesheets/panel.qss"
+        stylesheet = "stylesheets/networkload.qss"
         self.setStyleSheet(loadStylesheet(stylesheet))
         self.config = get_config()
         self.io = psutil.net_io_counters(pernic=True)
