@@ -1,7 +1,8 @@
 [display]
 output_display = 0
 
-
+[launcher]
+enabled = true
 
 [clock]
 enabled = true

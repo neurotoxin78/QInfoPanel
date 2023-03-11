@@ -1,8 +1,11 @@
 import sys
 import toml
+from os import listdir
+
 
 def get_config():
     return toml.load("config.toml")
+
 
 def extended_exception_hook(exec_type, value, traceback):
     # Print the error and traceback
@@ -12,9 +15,14 @@ def extended_exception_hook(exec_type, value, traceback):
     sys.exit(1)
 
 
+def get_apps_list(path):
+    return listdir(path)
+
+
 def loadStylesheet(sshFile):
     with open(sshFile, "r") as fh:
         return fh.read()
+
 
 def degrees_to_cardinal(d):
     '''
