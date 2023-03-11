@@ -1,7 +1,7 @@
 import requests
 from PyQt6.QtCore import Qt, QSize, QTimer
 from PyQt6.QtGui import QIcon, QFont, QPixmap
-from PyQt6.QtWidgets import (QWidget, QPushButton, QGridLayout, QLabel)
+from PyQt6.QtWidgets import (QWidget, QPushButton, QGridLayout, QLabel, QFrame)
 from decouple import config
 from rich.console import Console
 from tools import get_config, loadStylesheet, degrees_to_cardinal
@@ -10,7 +10,7 @@ from helpers import setShadow
 con = Console()
 
 
-class Weather(QWidget):
+class Weather(QFrame):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         stylesheet = "stylesheets/weather.qss"

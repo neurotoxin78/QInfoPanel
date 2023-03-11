@@ -7,7 +7,7 @@ from tools import loadStylesheet
 from helpers import setShadow
 
 
-class VolumeControl(QWidget):
+class VolumeControl(QFrame):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         stylesheet = "stylesheets/volumecontrol.qss"

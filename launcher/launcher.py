@@ -46,6 +46,7 @@ class LaunchButton(QWidget):
         self.launcher.launchBtn.clicked.connect(lambda: self.AppLaunch(self.launcher.lineEdit.text()))
         self.setLayout(self.launch_frame_frameLayout)
         setShadow(self.appBtn, 25)
+        setShadow(self.iRadioBtn, 25)
 
 
     def run_iRadio(self):

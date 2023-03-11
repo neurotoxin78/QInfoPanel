@@ -11,7 +11,7 @@ from tools import get_ip, get_config, get_size, loadStylesheet
 from helpers import setShadow
 
 
-class NetworkLoad(QWidget):
+class NetworkLoad(QFrame):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         stylesheet = "stylesheets/networkload.qss"
