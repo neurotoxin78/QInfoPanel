@@ -2,7 +2,10 @@ import sys
 import toml
 import socket
 from os import listdir
+from rich.console import Console
 
+
+con = Console()
 
 def get_config():
     return toml.load("config.toml")
@@ -60,3 +63,7 @@ def get_size(bytes):
         if bytes < 1024:
             return f"{bytes:.1f}{unit}B"
         bytes /= 1024
+
+def get_power_consumption(sensor: str):
+    with open(sensor) as f:
+        return float(f.read())

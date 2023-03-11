@@ -8,6 +8,7 @@ from informers.clock import Clock
 from informers.weather import Weather
 from informers.systemload import SystemLoad
 from informers.networkload import NetworkLoad
+from informers.powermonitor import PowerMonitor
 from launcher.launcher import LaunchButton
 from controllers.volumecontrol import VolumeControl
 from tools import get_config, loadStylesheet, extended_exception_hook
@@ -50,13 +51,19 @@ class MainWindow(QMainWindow):
 
         if self.config['networkload']['enabled']:
             self.networkLoad = NetworkLoad()
-            self.networkLoad.setMaximumSize(QSize(320, 145))
+            self.networkLoad.setMinimumSize(QSize(320, 155))
+            self.networkLoad.setMaximumSize(QSize(320, 155))
             self.right_frameLayout.addWidget(self.networkLoad, 1, 0)
 
         if self.config['volumecontrol']['enabled']:
             self.volumeControl = VolumeControl()
             self.volumeControl.setMaximumSize(QSize(320, 145))
             self.right_frameLayout.addWidget(self.volumeControl, 2, 0)
+
+        if self.config['powermonitor']['enabled']:
+            self.powerMon = PowerMonitor()
+            self.powerMon.setMaximumSize(QSize(320, 50))
+            self.right_frameLayout.addWidget(self.powerMon, 3, 0)
 
 if __name__ == '__main__':
     sys._excepthook = sys.excepthook

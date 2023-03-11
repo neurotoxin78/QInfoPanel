@@ -7,6 +7,12 @@ enabled = true
 [volumecontrol]
 enabled = true
 
+[powermonitor]
+enabled = true
+refresh_ms = 500
+voltage_sensor = "/sys/class/hwmon/hwmon0/in0_input"
+current_sensor = "/sys/class/hwmon/hwmon0/power1_cap"
+
 [clock]
 enabled = true
 refresh_ms = 500
