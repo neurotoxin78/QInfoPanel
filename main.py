@@ -80,6 +80,15 @@ class MainWindow(QMainWindow):
     def Exit(self):
         sys.exit(0)
 
+    def mousePressEvent(self, event):
+        self.dragPos = event.globalPosition().toPoint()
+
+
+    def mouseMoveEvent(self, event):
+      self.move(self.pos() + event.globalPosition().toPoint() - self.dragPos )
+      self.dragPos = event.globalPosition().toPoint()
+      event.accept()
+
 if __name__ == '__main__':
     sys._excepthook = sys.excepthook
     sys.excepthook = extended_exception_hook
@@ -88,7 +97,7 @@ if __name__ == '__main__':
     screen_resolution = QGuiApplication.primaryScreen().availableGeometry()
     print(screen_resolution.height(), screen_resolution.width())
     main_window = MainWindow()
-    main_window.showFullScreen()
+    main_window.show()
     sys.exit(app.exec())
 
 
