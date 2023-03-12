@@ -88,7 +88,7 @@ if __name__ == '__main__':
     screen_resolution = QGuiApplication.primaryScreen().availableGeometry()
     print(screen_resolution.height(), screen_resolution.width())
     main_window = MainWindow()
-    main_window.show()
+    main_window.showFullScreen()
     sys.exit(app.exec())
 
 
