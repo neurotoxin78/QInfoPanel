@@ -46,8 +46,8 @@ class LaunchButton(QWidget):
                 button = QPushButton("", self)
                 button.setObjectName("shortcut_" + str(i))
                 button.setIcon(QIcon.fromTheme(config['icon_name']))
-                button.setIconSize(QSize(config['icon_size'], config['icon_size']))
-                button.setMaximumSize(QSize(config['icon_size'], config['icon_size']))
+                button.setIconSize(QSize(self.config['launcher']['icon_size'], self.config['launcher']['icon_size']))
+                button.setMaximumSize(QSize(self.config['launcher']['icon_size'], self.config['launcher']['icon_size']))
                 button.setToolTip(config['tooltip'])
                 button.clicked.connect(lambda ch, i=i: self.run(i))      # < ---
                 self.launch_frame_frameLayout.addWidget(button)
