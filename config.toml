@@ -5,6 +5,7 @@ transperent = false
 
 [launcher]
 enabled = true
+icon_size = 64
 
 [volumecontrol]
 enabled = true

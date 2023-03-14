@@ -18,3 +18,10 @@ executable_path = "/snap/bin/firefox"
 icon_name = "applications-internet"
 icon_size = 64
 tooltip = "Launch Web Browser"
+
+[calculator]
+enabled = true
+executable_path = "/usr/bin/kcalc"
+icon_name = "applications-office"
+icon_size = 64
+tooltip = "Run Calculator"
