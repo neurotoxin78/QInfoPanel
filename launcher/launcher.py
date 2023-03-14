@@ -1,7 +1,7 @@
 from PyQt6 import uic
 from PyQt6.QtCore import Qt, QSize, QProcess, pyqtSlot, QUrl
 from PyQt6.QtGui import QFont, QIcon
-from PyQt6.QtWidgets import QWidget, QCompleter, QFrame, QGridLayout, QPushButton, QVBoxLayout
+from PyQt6.QtWidgets import QWidget, QCompleter, QFrame, QGridLayout, QPushButton, QVBoxLayout, QHBoxLayout
 from tools import get_config, get_apps_list
 from helpers import setShadow
 
@@ -11,7 +11,8 @@ class LaunchButton(QWidget):
         super(LaunchButton, self).__init__(*args, **kwargs)
         # Load the UI Page
         self.MainPanel = args[0]
-        self.config = get_config()
+        self.config = get_config("config.toml")
+        self.app_config = get_config("launcher.toml")
         self.launcher = Launcher()
         self.process = QProcess()  # Keep a reference to the QProcess (e.g. on self) while it's running.
         self.launch_frame = QFrame()
@@ -20,37 +21,48 @@ class LaunchButton(QWidget):
         # self.launch_frame.setFrameShape(QFrame.StyledPanel)
         # self.launch_frame.setFrameShadow(QFrame.Raised)
         self.launch_frame.setObjectName("launch_frame")
-        self.launch_frame_frameLayout = QGridLayout(self.launch_frame)
-        self.launch_frame_frameLayout.setObjectName("launch_frameLayout")
+        self.launch_frame_frameLayout = QHBoxLayout(self.launch_frame)
+        self.launch_frame_frameLayout.setObjectName("launch_frame_frameLayout")
         font = QFont()
         font.setFamily("Roboto Mono for Powerline")
         font.setPointSize(20)
         font.setBold(False)
         font.setUnderline(False)
         font.setWeight(50)
-        self.appBtn = QPushButton()
-        self.appBtn.setFont(font)
-        self.appBtn.setIcon(QIcon.fromTheme("applications-other"))
-        self.appBtn.setIconSize(QSize(64, 64))
-        self.appBtn.setMaximumSize(64, 64)
-        self.appBtn.clicked.connect(self.launcher.show)
-        self.launch_frame_frameLayout.addWidget(self.appBtn, 0, 0)
-        self.iRadioBtn = QPushButton()
-        self.iRadioBtn.setFont(font)
-        self.iRadioBtn.setIcon(QIcon.fromTheme("applications-multimedia"))
-        self.iRadioBtn.setIconSize(QSize(64, 64))
-        self.iRadioBtn.setMaximumSize(64, 64)
-        self.iRadioBtn.clicked.connect(self.run_iRadio)
-        self.launch_frame_frameLayout.addWidget(self.iRadioBtn, 0, 1)
+        if self.config['launcher']['enabled']:
+            self.launchBtn = QPushButton()
+            self.launchBtn.setFont(font)
+            self.launchBtn.setIcon(QIcon.fromTheme("applications-other"))
+            self.launchBtn.setIconSize(QSize(64, 64))
+            self.launchBtn.setMaximumSize(64, 64)
+            self.launchBtn.clicked.connect(self.launcher.show)
+            self.launch_frame_frameLayout.addWidget(self.launchBtn)
+            setShadow(self.launchBtn, 25)
+            self.c_item = list(self.app_config.keys())
+
+        for i in range(len(self.app_config)):
+            config = self.app_config.get(self.c_item[i])
+            if config['enabled']:
+                button = QPushButton("", self)
+                button.setObjectName("shortcut_" + str(i))
+                button.setIcon(QIcon.fromTheme(config['icon_name']))
+                button.setIconSize(QSize(config['icon_size'], config['icon_size']))
+                button.setMaximumSize(QSize(config['icon_size'], config['icon_size']))
+                button.setToolTip(config['tooltip'])
+                button.clicked.connect(lambda ch, i=i: self.run(i))      # < ---
+                self.launch_frame_frameLayout.addWidget(button)
+                setShadow(button, 25)
+
         self.launcher.lineEdit.returnPressed.connect(lambda: self.AppLaunch(self.launcher.lineEdit.text()))
         self.launcher.launchBtn.clicked.connect(lambda: self.AppLaunch(self.launcher.lineEdit.text()))
         self.setLayout(self.launch_frame_frameLayout)
-        setShadow(self.appBtn, 25)
-        setShadow(self.iRadioBtn, 25)
 
+    def run(self, i):
+        config = self.app_config.get(self.c_item[i])
+        self.AppLaunch(config['executable_path'])
 
-    def run_iRadio(self):
-        pass
+    def shortcut0_click(self):
+        self.AppLaunch(self.app_config['0']['executable_path'])
     def AppLaunch(self, command: str):
         raw_cmd = command.split(sep=" ")
         cmd = raw_cmd[0]
@@ -66,7 +78,7 @@ class Launcher(QWidget):
     def __init__(self, *args, **kwargs):
         super(Launcher, self).__init__(*args, **kwargs)
         # Load the UI Page
-        self.config = get_config()
+        self.config = get_config("config.toml")
         uic.loadUi('ui/launcher.ui', self)
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint | Qt.WindowType.Tool | Qt.WindowType.WindowStaysOnTopHint)  # | Qt.WindowModal)
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground, True)

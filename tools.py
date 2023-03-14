@@ -7,8 +7,8 @@ from rich.console import Console
 
 con = Console()
 
-def get_config():
-    return toml.load("config.toml")
+def get_config(file : str):
+    return toml.load(file)
 
 
 def extended_exception_hook(exec_type, value, traceback):

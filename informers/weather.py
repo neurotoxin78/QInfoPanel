@@ -16,7 +16,7 @@ class Weather(QFrame):
         stylesheet = "stylesheets/weather.qss"
         self.MainPanel = args[0]
         self.setStyleSheet(loadStylesheet(stylesheet))
-        self.config = get_config()
+        self.config = get_config("config.toml")
         self.weathertimer = QTimer()
         self.weathertimer.timeout.connect(self.refresh)
         we_refresh = (int(self.config['weather']['fefresh_min']) * 1024) * 60

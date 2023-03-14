@@ -20,7 +20,7 @@ class MainWindow(QMainWindow):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
         uic.loadUi('ui/panel.ui', self)
-        self.config = get_config()
+        self.config = get_config("config.toml")
         self.setWindowTitle("QInfoPanel")
         self.exitButton = QPushButton()
         self.exitButton.clicked.connect(self.Exit)
@@ -75,6 +75,9 @@ class MainWindow(QMainWindow):
             self.powerMon = PowerMonitor()
             self.powerMon.setMaximumSize(QSize(320, 50))
             self.right_frameLayout.addWidget(self.powerMon, 3, 0)
+
+
+
 
     @staticmethod
     def Exit(self):

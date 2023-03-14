@@ -1,7 +1,7 @@
 [display]
 output_display = 0
-frameless = true
-transperent = true
+frameless = false
+transperent = false
 
 [launcher]
 enabled = true

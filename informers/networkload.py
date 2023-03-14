@@ -16,7 +16,7 @@ class NetworkLoad(QFrame):
         super().__init__(*args, **kwargs)
         stylesheet = "stylesheets/networkload.qss"
         self.setStyleSheet(loadStylesheet(stylesheet))
-        self.config = get_config()
+        self.config = get_config("config.toml")
         self.io = psutil.net_io_counters(pernic=True)
         self.upload_graph_data = deque()
         self.download_graph_data = deque()

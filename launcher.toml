@@ -1,0 +1,20 @@
+[terminal]
+enabled = true
+executable_path = "/usr/bin/konsole"
+icon_name = "applications-accessories"
+icon_size = 64
+tooltip = "Launch Terminal Emulator"
+
+[smplayer]
+enabled = true
+executable_path = "/usr/bin/smplayer"
+icon_name = "applications-multimedia"
+icon_size = 64
+tooltip = "Launch SMPlayer"
+
+[browser]
+enabled = true
+executable_path = "/snap/bin/firefox"
+icon_name = "applications-internet"
+icon_size = 64
+tooltip = "Launch Web Browser"

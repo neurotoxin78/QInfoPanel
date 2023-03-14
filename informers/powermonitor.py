@@ -10,7 +10,7 @@ class PowerMonitor(QWidget):
         super().__init__(*args, **kwargs)
         stylesheet = "stylesheets/systemload.qss"
         self.setStyleSheet(loadStylesheet(stylesheet))
-        self.config = get_config()
+        self.config = get_config("config.toml")
         self.sensortimer = QTimer()
         self.sensortimer.timeout.connect(self.refresh)
         self.sensortimer.start(self.config['powermonitor']['refresh_ms'])

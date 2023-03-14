@@ -13,11 +13,10 @@ class Clock(QWidget):
         super().__init__(*args, **kwargs)
         stylesheet = "stylesheets/panel.qss"
         self.setStyleSheet(loadStylesheet(stylesheet))
-        self.config = get_config()
+        self.config = get_config("config.toml")
         self.clocktimer = QTimer()
         self.clocktimer.timeout.connect(self.Clock)
         self.clocktimer.start(self.config['clock']['refresh_ms'])
-        self.config = get_config()
         self.layout = QGridLayout()
         self.time_Label = QLabel()
         self.time_Label.setMinimumSize(QSize(0, 0))

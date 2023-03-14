@@ -10,7 +10,7 @@ class SystemLoad(QFrame):
         super().__init__(*args, **kwargs)
         stylesheet = "stylesheets/systemload.qss"
         self.setStyleSheet(loadStylesheet(stylesheet))
-        self.config = get_config()
+        self.config = get_config("config.toml")
         self.sensortimer = QTimer()
         self.sensortimer.timeout.connect(self.sysStat)
         self.sensortimer.start(self.config['systemload']['sensor_refresh_ms'])
