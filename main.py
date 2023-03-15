@@ -77,8 +77,6 @@ class MainWindow(QMainWindow):
             self.right_frameLayout.addWidget(self.powerMon, 3, 0)
 
 
-
-
     @staticmethod
     def Exit(self):
         sys.exit(0)
