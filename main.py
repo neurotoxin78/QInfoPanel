@@ -76,7 +76,6 @@ class MainWindow(QMainWindow):
             self.powerMon.setMaximumSize(QSize(320, 50))
             self.right_frameLayout.addWidget(self.powerMon, 3, 0)
 
-
     @staticmethod
     def Exit(self):
         sys.exit(0)
