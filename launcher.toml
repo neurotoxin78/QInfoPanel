@@ -12,7 +12,7 @@ tooltip = "Launch SMPlayer"
 
 [browser]
 enabled = true
-executable_path = "/snap/bin/firefox"
+executable_path = "python3 webengine.py"
 icon_name = "applications-internet"
 tooltip = "Launch Web Browser"
 

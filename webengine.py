@@ -58,9 +58,10 @@ class CookiesManager(object):
                                 # restore host-only cookie
                                 cookie.setDomain('')
                                 self.cookie_store.setCookie(cookie, self.browser_view.url())
+                                print("Restore host-only cookie")
                         else:
                             self.cookie_store.setCookie(cookie)
-        print("Cookie Load")
+                            print("Cookie Load")
 
     def remove_cookie(self, cookie):
         ''' Delete cookie file.'''
@@ -68,9 +69,9 @@ class CookiesManager(object):
             cookie_file = os.path.join(self.cookies_dir, cookie.domain(), self._generate_cookie_filename(cookie))
 
             if os.path.exists(cookie_file):
-                # pass
-                os.remove(cookie_file)
-        print("Cookies Removed")
+                # os.remove(cookie_file)
+                # print("Cookies Removed")
+                pass
     def delete_all_cookies(self):
         ''' Simply delete all cookies stored on memory and disk.'''
         self.cookie_store.deleteAllCookies()
