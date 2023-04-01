@@ -73,7 +73,8 @@ class MainWindow(QMainWindow):
 
         if self.config['powermonitor']['enabled']:
             self.powerMon = PowerMonitor()
-            self.powerMon.setMaximumSize(QSize(320, 50))
+            self.powerMon.setMinimumSize(QSize(320, 75))
+            self.powerMon.setMaximumSize(QSize(320, 75))
             self.right_frameLayout.addWidget(self.powerMon, 3, 0)
 
     @staticmethod

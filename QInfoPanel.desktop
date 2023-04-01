@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Exec=python3 main.py
+Path=/home/neuro/Apps/QInfoPanel
+Comment=A Qt6 Based Informer Panel
+Categories=System;
+Name=QInfoPanel
