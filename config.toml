@@ -17,6 +17,8 @@ sbc_voltage_sensor = "/sys/class/hwmon/hwmon2/in1_input"
 sbc_current_sensor = "/sys/class/hwmon/hwmon2/curr1_input"
 usb_voltage_sensor = "/sys/class/hwmon/hwmon2/in3_input"
 usb_current_sensor = "/sys/class/hwmon/hwmon2/curr3_input"
+clr_voltage_sensor = "/sys/class/hwmon/hwmon2/in2_input"
+clr_current_sensor = "/sys/class/hwmon/hwmon2/curr2_input"
 
 [clock]
 enabled = true
